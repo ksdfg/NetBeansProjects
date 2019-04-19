@@ -32,6 +32,8 @@ int main(int argc, char** argv) {
     fb->dfs_r();
     cout<<endl;
     fb->dfs_nr();
+    cout<<endl;
+    fb->bfs_nr();
 
     return 0;
 }

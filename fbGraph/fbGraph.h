@@ -36,6 +36,22 @@ public:
     Node(const Node& other) :   //copy constructor
     vertex(other.vertex), name(other.name), next(NULL) {
     }
+    
+    Node* GetNext() const {
+        return next;
+    }
+
+    string GetName() const {
+        return name;
+    }
+
+    void SetNext(Node* next) {
+        this->next = next;
+    }
+
+    bool operator==(const Node& right) const {
+        return this->name==right.name && this->vertex==right.vertex; // Compare right and *this here
+    }
 
 };
 
@@ -47,6 +63,8 @@ class Graph{
 private:
     
     const int getIndex(string name);    //get the vertex number of a node with given name
+    
+    bool friendOf(int toCheck, const Node* meow);   //figure out if two users are already friends
     
     void dfs(int index, int visited[]); //depth first something (hey that actually works out, supposed to be traversal tho)
     
@@ -63,6 +81,8 @@ public:
     void dfs_r();           //handler method for dfs
     
     void dfs_nr();          //non recursive depth first something (hey that actually works out, supposed to be traversal tho)
+    
+    void bfs_nr();          //non recursive breadth first something (hey that actually works out, supposed to be traversal tho)
 };
 
 #endif /* FBGRAPH_H */

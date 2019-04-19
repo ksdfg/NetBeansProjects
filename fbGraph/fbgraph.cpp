@@ -46,6 +46,19 @@ const int Graph::getIndex(string name){    //searching a vertex from list of all
     return -1;    //returns NULL if vertex not found
 }
 
+bool Graph::friendOf(int toCheck, const Node* meow){   //figure out if two users are already friends
+    meow = meow->next;  //no need to check the given node, that's covered in different case
+    
+    while(meow != NULL){    //iterate through adjacency list
+        if(*meow == *head[toCheck]){
+            return true;
+        }
+        meow = meow->next;
+    }
+    
+    return false;
+}
+
 void Graph::create(){  //fill in all the edges; make adjacency list
     Node* temp;
     char meow;
@@ -53,7 +66,6 @@ void Graph::create(){  //fill in all the edges; make adjacency list
     int index;
 
     for(int i=0; i<vertices; i++){  //ask for friends of all vertices
-        temp = head[i];
         cout<<"\nDoes "<<head[i]->name<<" have any friends? y or n : ";
         cin>>meow;
 
@@ -66,14 +78,23 @@ void Graph::create(){  //fill in all the edges; make adjacency list
             if(index == -1){   //search if friend actually exists -_-
                 cout<<"Not your imaginary friends ~_~"<<endl;
             }
-            else if(index == i){
-
+            else if(index == i){    //if he entered himself as his own friend
+                cout<<"That's you buddy... this is just sad T-T"<<endl;
+            }
+            else if(friendOf(index, head[i])){  //if they're already friends
+                cout<<"You're already friends ~_~"<<endl;
             }
             else{
-                temp->next = new Node(*head[index]);
+                //make new guy a friend of current guy
+                temp = new Node(*head[index]);
+                temp->next = head[i]->next;
+                head[i]->next = temp;
+                
+                //make current guy a friend of new guy
+                temp = new Node(*head[i]);
+                temp->next = head[index]->next;
+                head[index]->next = temp;
             }
-
-            temp = temp->next;  //make next friend if there
 
             cout<<"Does "<<head[i]->name<<" have any more friends ? y or n : ";
             cin>>meow;
@@ -84,18 +105,17 @@ void Graph::create(){  //fill in all the edges; make adjacency list
 void Graph::display(){ //display the graph (adjacency lists)
     Node* temp;
 
-    cout<<endl;
-
     for(int i=0; i<vertices; i++){  //iterate through the head array
-        temp = head[i];
+        cout<<endl<<head[i]->name;
+        temp = head[i]->next;
 
         while(temp != NULL){    //iterate through the adjacency list
-            cout<<temp->name<<"\t";
+            cout<<"\t-->\t"<<temp->name;
             temp = temp->next;
         }
-
-        cout<<endl; //go to next line after printing an adjacency list
     }
+    
+    cout<<endl;
 }
 
 void Graph::dfs_r(){ //handler
@@ -129,7 +149,7 @@ void Graph::dfs(int index, int visited[]){  //recursive call for dft
 
 void Graph::dfs_nr(){   //non recursive method for dft
     int visited[vertices];  //array to store if a node has been visited
-    stack<int> s;
+    queue<int> q;
     Node *temp;
 
     for(int i=0; i<vertices; i++){  //no node is visited at first
@@ -140,21 +160,57 @@ void Graph::dfs_nr(){   //non recursive method for dft
     cout<<endl<<"Non Recursive\nEnter user name to start dft with : ";
     cin>>meow;
     
-    s.push(getIndex(meow));
+    q.push(getIndex(meow)); //push first node to queue
     
-    while(!s.empty()){
-        temp = head[s.top()];
-        s.pop();
+    while(!q.empty()){
+        temp = head[q.front()];
+        q.pop();
         
-        cout<<temp->name<<"\t";     //visit node
-        visited[temp->vertex] = 1;  //mark node as visited
+        if(visited[temp->vertex] == 0){
+            visited[temp->vertex] = 1;  //mark node as visited
+            cout<<temp->name<<"\t";     //visit node
+        }
         
         temp = temp->next;
-        while(temp != NULL){
+        while(temp != NULL){    //push adjacent nodes to queue
             if(visited[temp->vertex] == 0){
-                s.push(temp->vertex);
+                q.push(temp->vertex);
             }
-            temp = temp->next;
+            temp = temp->next;  //to iterate through adjacency list
+        }
+    }
+}
+    
+void Graph::bfs_nr(){          //non recursive depth first something (hey that actually works out, supposed to be traversal tho)
+    int visited[vertices];  //array to store if a node has been visited
+    stack<int> q;
+    Node *temp;
+
+    for(int i=0; i<vertices; i++){  //no node is visited at first
+        visited[i] = 0;
+    }
+
+    string meow;
+    cout<<endl<<"Non Recursive\nEnter user name to start dft with : ";
+    cin>>meow;
+    
+    q.push(getIndex(meow)); //push first node to queue
+    
+    while(!q.empty()){
+        temp = head[q.top()];
+        q.pop();
+        
+        if(visited[temp->vertex] == 0){
+            visited[temp->vertex] = 1;  //mark node as visited
+            cout<<temp->name<<"\t";     //visit node
+        }
+        
+        temp = temp->next;
+        while(temp != NULL){    //push adjacent nodes to queue
+            if(visited[temp->vertex] == 0){
+                q.push(temp->vertex);
+            }
+            temp = temp->next;  //to iterate through adjacency list
         }
     }
 }
