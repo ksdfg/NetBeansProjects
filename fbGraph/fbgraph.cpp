@@ -6,6 +6,7 @@
 #include "fbGraph.h"
 #include <iostream>
 #include <string>
+#include <stack>
 
 using namespace std;
 
@@ -17,6 +18,21 @@ vertices(vertices) {
 
         cout<<"Enter name of user : ";
         cin>>head[i]->name;
+    }
+}
+
+Graph::~Graph(){
+    Node *meow, *nyan;
+    
+    for(int i=0; i<vertices; i++){
+        meow = head[i]->next;
+        delete head[i];
+        
+        while(meow != NULL){
+            nyan = meow;
+            meow = meow->next;
+            delete nyan;
+        }
     }
 }
 
@@ -82,7 +98,7 @@ void Graph::display(){ //display the graph (adjacency lists)
     }
 }
 
-void Graph::dfs(){ //handler
+void Graph::dfs_r(){ //handler
     int visited[vertices];  //array to store if a node has been visited
 
     for(int i=0; i<vertices; i++){  //no node is visited at first
@@ -90,13 +106,13 @@ void Graph::dfs(){ //handler
     }
 
     string meow;
-    cout<<"\nEnter user name to start dft with : ";
+    cout<<endl<<"Recursive\nEnter user name to start dft with : ";
     cin>>meow;
 
     dfs(getIndex(meow), visited);   //call to the recursive method
 }
 
-void Graph::dfs(int index, int visited[]){  //recursive call
+void Graph::dfs(int index, int visited[]){  //recursive call for dft
     Node* temp = head[index];
 
     cout<<temp->name<<"\t"; //visit node
@@ -108,5 +124,37 @@ void Graph::dfs(int index, int visited[]){  //recursive call
             dfs(temp->vertex, visited);
         }
         temp = temp->next;
+    }
+}
+
+void Graph::dfs_nr(){   //non recursive method for dft
+    int visited[vertices];  //array to store if a node has been visited
+    stack<int> s;
+    Node *temp;
+
+    for(int i=0; i<vertices; i++){  //no node is visited at first
+        visited[i] = 0;
+    }
+
+    string meow;
+    cout<<endl<<"Non Recursive\nEnter user name to start dft with : ";
+    cin>>meow;
+    
+    s.push(getIndex(meow));
+    
+    while(!s.empty()){
+        temp = head[s.top()];
+        s.pop();
+        
+        cout<<temp->name<<"\t";     //visit node
+        visited[temp->vertex] = 1;  //mark node as visited
+        
+        temp = temp->next;
+        while(temp != NULL){
+            if(visited[temp->vertex] == 0){
+                s.push(temp->vertex);
+            }
+            temp = temp->next;
+        }
     }
 }

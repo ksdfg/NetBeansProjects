@@ -53,12 +53,16 @@ private:
 public:
     
     Graph(int vertices);    //constructor (parameterized)
+    
+    ~Graph();               //destructor
 
     void create();          //populate the graph with nodes and edges
     
     void display();         //adjacency lists
     
-    void dfs();             //handler method for dfs
+    void dfs_r();           //handler method for dfs
+    
+    void dfs_nr();          //non recursive depth first something (hey that actually works out, supposed to be traversal tho)
 };
 
 #endif /* FBGRAPH_H */

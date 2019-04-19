@@ -29,7 +29,9 @@ int main(int argc, char** argv) {
     Graph* fb = new Graph(users);
     fb->create();
     fb->display();
-    fb->dfs();
+    fb->dfs_r();
+    cout<<endl;
+    fb->dfs_nr();
 
     return 0;
 }
