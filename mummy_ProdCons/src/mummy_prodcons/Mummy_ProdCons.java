@@ -21,7 +21,7 @@ public class Mummy_ProdCons {
         // TODO code application logic here
         Queue<String> queue = new LinkedList<>();
         
-        MummyThread.res = new Resource(queue);
+        MummyThread.setResource(queue);
         
         Thread p1 = new Thread(new Producer("p1"));
         Thread c1 = new Thread(new Consumer("c1"));
