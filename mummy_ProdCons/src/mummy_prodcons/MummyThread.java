@@ -5,19 +5,25 @@
  */
 package mummy_prodcons;
 
+import java.util.Queue;
+
 /**
  *
  * @author ksdfg
  */
 abstract class MummyThread implements Runnable {
     
-    static Resource res;    //The shared resource, a queue in this case
-    boolean shutdown;       //boolean to stop the process when it's work is done
+    protected static Resource res;    //The shared resource, a queue in this case
+    protected boolean shutdown;       //boolean to stop the process when it's work is done
     String name;            //name of the process
 
     public MummyThread(String name) {
         this.name = name;
         shutdown = false;
+    }
+    
+    public static void setResource(Queue<String> queue){
+        res = new Resource(queue);
     }
     
     abstract void doJob();  //overridden in producer / consumer
