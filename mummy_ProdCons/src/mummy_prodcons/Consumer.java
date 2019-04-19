@@ -19,13 +19,18 @@ class Consumer extends MummyThread{
 
     @Override
     void doJob() {
-        String s = res.queue.poll();
+        String s = MummyThread.res.queue.poll();
         
         if(s == null){
             System.out.println(name + " can't consume from an empty queue.");
         }
         else{
-            System.out.println(s + " removed by " + name + " from queue.\t" + res.queue);
+            try{
+                System.out.println(s + " removed by " + name + " from queue.\t" + MummyThread.res.queue);
+            }
+            catch(java.util.ConcurrentModificationException e){
+                System.out.println("HOUSTON, WE'VE GOT A PROBLEM\t" + name + " failed");
+            }
             if(s.equals("stop")){
                 shutdown = true;
                 System.out.println(name + " stopped.");

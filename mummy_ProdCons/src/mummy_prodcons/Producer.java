@@ -27,11 +27,14 @@ class Producer extends MummyThread{
         String s = data[r.nextInt(5)];
         
         try{
-            res.queue.add(s);
-            System.out.println(s + " entered by " + name + " into queue.\t" + res.queue);
+            MummyThread.res.queue.add(s);
+            System.out.println(s + " entered by " + name + " into queue.\t" + MummyThread.res.queue);
         }
         catch(IllegalStateException e){
             System.out.println(name + " cannot enter string into queue, it's full.");
+        }
+        catch(java.util.ConcurrentModificationException e1){
+            System.out.println("HOUSTON, WE'VE GOT A PROBLEM\t" + name + " failed");
         }
         
         if(s.equals("stop")){
