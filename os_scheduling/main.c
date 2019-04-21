@@ -73,7 +73,7 @@ void dispProcs(proc p[], int size){	//display the array of processes in tabular 
 
 void fcfs(proc p[], int size){	//print gant chart and calculate waiting time and turn around time
 	
-	int currTime = p[0].at, t_wt = 0, t_tat = 0;    //
+	int currTime = p[0].at, t_wt = 0, t_tat = 0;
 	
 	printf("\n\tGant Chart for fcfs\n");
 	printf("\n%d ", currTime);
@@ -106,7 +106,7 @@ void fcfs(proc p[], int size){	//print gant chart and calculate waiting time and
 
 void sjfPre(proc p[], int size){
     
-    int currTime = p[0].at, t_wt = 0, t_tat = 0;    //
+    int currTime = p[0].at, t_wt = 0, t_tat = 0;
     int i = 0, shutdown = 0, meow = -1;
     int burst[size];
     
