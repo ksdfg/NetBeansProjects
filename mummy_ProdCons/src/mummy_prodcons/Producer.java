@@ -5,7 +5,6 @@
  */
 package mummy_prodcons;
 
-import java.util.Queue;
 import java.util.Random;
 
 /**

@@ -5,8 +5,6 @@
  */
 package mummy_prodcons;
 
-import java.util.Queue;
-
 /**
  *
  * @author ksdfg

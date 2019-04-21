@@ -5,10 +5,6 @@
  */
 package mummy_prodcons;
 
-import java.util.Queue;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author ksdfg
@@ -22,10 +18,6 @@ abstract class MummyThread implements Runnable {
     public MummyThread(String name) {
         this.name = name;
         shutdown = false;
-    }
-    
-    public static void setResource(Queue<String> queue){
-        res = new Resource(queue);
     }
     
     abstract void doJob();  //overridden in producer / consumer
