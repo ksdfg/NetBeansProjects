@@ -106,7 +106,52 @@ void fcfs(proc p[], int size){	//print gant chart and calculate waiting time and
 
 void sjfPre(proc p[], int size){
     
-    //write code here dummo
+    int currTime = p[0].at, t_wt = 0, t_tat = 0;    //
+    int i = 0, shutdown = 0;
+    int burst[size];
+    
+    for(int j=0; j<size; j++)
+        burst[j] = p[j].bt;
+	
+    printf("\n\tGant Chart for sjf pre-emptive\n");
+    printf("\n%d ", currTime);
+
+    while(!shutdown){
+        printf("<--p%d--> ", p[i].name);
+
+        currTime ++;
+        burst[i]--;
+
+        if(burst[i] == 0){
+            p[i].tat = currTime - p[i].at;
+            t_tat += p[i].tat;
+
+            p[i].wt = p[i].tat - p[i].bt;
+            t_wt += p[i].wt;
+            
+            for(int j=0; j<size; j++){
+                if(burst[j] != 0){
+                    i = j;
+                    break;
+                }
+            }
+        }
+
+        printf("%d ", currTime);
+
+        shutdown = 1;
+        for(int j=0; j<size; j++){
+            if(p[j].at <= currTime && burst[j] != 0){
+                i = (burst[i] > burst[j] ? j : i);
+                shutdown = 0;
+            }
+        }
+    }
+
+    printf("\n");
+    dispProcs(p, size);
+
+    printf("\navg waiting time = %f\navg turnaround time = %f\n", ((float)t_wt/size), ((float)t_tat/size));
     
 }
 
@@ -124,6 +169,7 @@ int main(int argc, char** argv) {
     dispProcs(p, n);
 
     fcfs(p, n);
+    sjfPre(p, n);
     
     return (EXIT_SUCCESS);
 }
