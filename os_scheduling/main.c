@@ -107,7 +107,7 @@ void fcfs(proc p[], int size){	//print gant chart and calculate waiting time and
 void sjfPre(proc p[], int size){
     
     int currTime = p[0].at, t_wt = 0, t_tat = 0;    //
-    int i = 0, shutdown = 0;
+    int i = 0, shutdown = 0, meow = -1;
     int burst[size];
     
     for(int j=0; j<size; j++)
@@ -117,7 +117,10 @@ void sjfPre(proc p[], int size){
     printf("\n%d ", currTime);
 
     while(!shutdown){
-        printf("<--p%d--> ", p[i].name);
+        if(meow != i)
+            printf("%d <--p%d--> ", currTime, p[i].name);
+        
+        meow = i;
 
         currTime ++;
         burst[i]--;
@@ -137,8 +140,6 @@ void sjfPre(proc p[], int size){
             }
         }
 
-        printf("%d ", currTime);
-
         shutdown = 1;
         for(int j=0; j<size; j++){
             if(p[j].at <= currTime && burst[j] != 0){
@@ -148,7 +149,7 @@ void sjfPre(proc p[], int size){
         }
     }
 
-    printf("\n");
+    printf("%d\n", currTime);
     dispProcs(p, size);
 
     printf("\navg waiting time = %f\navg turnaround time = %f\n", ((float)t_wt/size), ((float)t_tat/size));
