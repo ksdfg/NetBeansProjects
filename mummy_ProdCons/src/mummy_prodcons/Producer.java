@@ -32,9 +32,7 @@ class Producer extends MummyThread{
             System.out.println("HOUSTON, WE'VE GOT A PROBLEM\t" + name + " failed");
         }
         
-        if(s.equals("stop")){   //stop the thread
-            shutdown = true;
-        }
+        shutdown = s.equals("stop");   //stop the thread if true
     }
     
 }
