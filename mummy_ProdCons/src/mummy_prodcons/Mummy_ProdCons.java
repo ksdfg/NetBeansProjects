@@ -23,16 +23,11 @@ public class Mummy_ProdCons {
         
         MummyThread.res = new Resource(queue);
         
-        Producer[] p = new Producer[7];
-        Consumer[] c = new Consumer[7];
+        Thread p1 = new Thread(new Producer("p1"));
+        Thread c1 = new Thread(new Consumer("c1"));
         
-        for(int i=0; i<7; i++){
-            p[i] = new Producer("p"+i);
-            p[i].start();
-            
-            c[i] = new Consumer("c"+i);
-            c[i].start();
-        }
+        p1.start();
+        c1.start();
     }
     
 }
