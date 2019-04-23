@@ -6,6 +6,8 @@
 package mummy_prodcons;
 
 import java.util.Queue;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  *
@@ -13,12 +15,11 @@ import java.util.Queue;
  */
 class Resource {    //class for shared resources, queue for now
     
-    boolean semaphore;      //true if free
+    Lock semaphore = new ReentrantLock();      //true if free
     Queue<String> queue;    //the shared resource
 
     public Resource(Queue<String> queue) {
         this.queue = queue;
-        this.semaphore = true;
     }            
     
 }

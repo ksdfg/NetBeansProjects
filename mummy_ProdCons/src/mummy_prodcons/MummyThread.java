@@ -9,7 +9,7 @@ package mummy_prodcons;
  *
  * @author ksdfg
  */
-abstract class MummyThread implements Runnable {
+abstract class MummyThread extends Thread {
     
     protected static Resource res;    //The shared resource, a queue in this case
     protected boolean shutdown;       //boolean to stop the process when it's work is done
@@ -25,12 +25,20 @@ abstract class MummyThread implements Runnable {
     @Override
     public void run() {        
         do{
-            if(res.semaphore){
-                res.semaphore = false;
-                this.doJob();
-                res.semaphore = true;
+            if(res.semaphore.tryLock()){    //gets lock and returns true if free (basically wait)
+                try{
+                    this.doJob();
+                }
+                catch(Exception e){     //just in case
+                    System.out.println(e.toString());
+                }
+                finally{
+                    res.semaphore.unlock();     //frees resource (basically signal)
+                }
             }
         } while(!shutdown);
+        
+        System.out.println(name + " stopped."); //notify that the thread has stopped.
     }
     
 }

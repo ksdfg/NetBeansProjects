@@ -17,21 +17,18 @@ class Consumer extends MummyThread{
 
     @Override
     void doJob() {
-        String s = MummyThread.res.queue.poll();
+        String s = MummyThread.res.queue.poll();    //remove front element from queue
         
-        if(s == null){
-            System.out.println(name + " can't consume from an empty queue.");
-        }
-        else{
+        if(s != null){  //poll() returns null if queue empty
             try{
                 System.out.println(s + " removed by " + name + " from queue.\t" + MummyThread.res.queue);
             }
-            catch(java.util.ConcurrentModificationException e){
+            catch(java.util.ConcurrentModificationException e){    //in case of fail
                 System.out.println("HOUSTON, WE'VE GOT A PROBLEM\t" + name + " failed");
             }
-            if(s.equals("stop")){
+            
+            if(s.equals("stop")){   //stop the thread
                 shutdown = true;
-                System.out.println(name + " stopped.");
             }
         }
     }
