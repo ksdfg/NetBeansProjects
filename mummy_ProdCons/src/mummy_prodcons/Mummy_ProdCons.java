@@ -21,18 +21,7 @@ public class Mummy_ProdCons {
         // TODO code application logic here
         Queue<String> queue = new LinkedList<>();
         
-        MummyThread.res = new Resource(queue);
         
-        Producer[] p = new Producer[5];
-        Consumer[] c = new Consumer[5];
-        
-        for(int i=0; i<5; i++){
-            p[i] = new Producer("p" + (i+1));
-            p[i].start();
-            
-            c[i] = new Consumer("c" + (i+1));
-            c[i].start();
-        }
     }
     
 }

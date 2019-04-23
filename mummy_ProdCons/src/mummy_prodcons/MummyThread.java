@@ -11,7 +11,7 @@ package mummy_prodcons;
  */
 abstract class MummyThread extends Thread {
     
-    protected static Resource res;    //The shared resource, a queue in this case
+    protected Resource res;    //The shared resource, a queue in this case
     protected boolean shutdown;       //boolean to stop the process when it's work is done
     String name;            //name of the process
 

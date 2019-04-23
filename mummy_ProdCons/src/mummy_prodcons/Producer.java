@@ -25,8 +25,8 @@ class Producer extends MummyThread{
         String s = data[r.nextInt(5)];      //pick an element randomly
         
         try{
-            MummyThread.res.queue.offer(s); //add string to queue if queue not full
-            System.out.println(s + " entered by " + name + " into queue.\t" + MummyThread.res.queue);
+            res.queue.offer(s); //add string to queue if queue not full
+            System.out.println(s + " entered by " + name + " into queue.\t" + res.queue);
         }
         catch(java.util.ConcurrentModificationException e1){    //in case of fail
             System.out.println("HOUSTON, WE'VE GOT A PROBLEM\t" + name + " failed");
