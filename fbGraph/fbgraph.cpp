@@ -149,7 +149,7 @@ void Graph::dfs(int index, int visited[]){  //recursive call for dft
 
 void Graph::dfs_nr(){   //non recursive method for dft
     int visited[vertices];  //array to store if a node has been visited
-    queue<int> q;
+    stack<int> q;
     Node *temp;
 
     for(int i=0; i<vertices; i++){  //no node is visited at first
@@ -163,7 +163,7 @@ void Graph::dfs_nr(){   //non recursive method for dft
     q.push(getIndex(meow)); //push first node to queue
     
     while(!q.empty()){
-        temp = head[q.front()];
+        temp = head[q.top()];
         q.pop();
         
         if(visited[temp->vertex] == 0){
@@ -183,7 +183,7 @@ void Graph::dfs_nr(){   //non recursive method for dft
     
 void Graph::bfs_nr(){          //non recursive depth first something (hey that actually works out, supposed to be traversal tho)
     int visited[vertices];  //array to store if a node has been visited
-    stack<int> q;
+    queue<int> q;
     Node *temp;
 
     for(int i=0; i<vertices; i++){  //no node is visited at first
@@ -197,7 +197,7 @@ void Graph::bfs_nr(){          //non recursive depth first something (hey that a
     q.push(getIndex(meow)); //push first node to queue
     
     while(!q.empty()){
-        temp = head[q.top()];
+        temp = head[q.front()];
         q.pop();
         
         if(visited[temp->vertex] == 0){
