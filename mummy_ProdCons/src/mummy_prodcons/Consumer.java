@@ -16,7 +16,7 @@ class Consumer extends MummyThread{
     }
 
     @Override
-    void doJob() {
+    protected void doJob() {
         String s = res.queue.poll();    //remove front element from queue
         
         if(s != null){  //poll() returns null if queue empty

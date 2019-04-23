@@ -21,7 +21,7 @@ class Producer extends MummyThread{
     }
 
     @Override
-    void doJob() {
+    protected void doJob() {
         String s = data[r.nextInt(5)];      //pick an element randomly
         
         try{

@@ -9,18 +9,46 @@ package mummy_prodcons;
  *
  * @author ksdfg
  */
-abstract class MummyThread extends Thread {
+class MummyThread extends Thread {
     
     protected Resource res;    //The shared resource, a queue in this case
     protected boolean shutdown;       //boolean to stop the process when it's work is done
     String name;            //name of the process
+    
+    private Producer[] producer;
+    private Consumer[] consumer;
 
     public MummyThread(String name) {
         this.name = name;
         shutdown = false;
     }
+
+    public MummyThread(Resource res, String name, int producer, int consumer) {
+        this.res = res;
+        this.name = name;
+        
+        this.producer = new Producer[producer];
+        for(int i=0; i<producer; i++){
+            this.producer[i] = new Producer(name + " : p" + (i+1));
+        }
+        
+        this.consumer = new Consumer[consumer];
+        for(int i=0; i<consumer; i++){
+            this.consumer[i] = new Consumer(name + " : c" + (i+1));
+        }
+    }
     
-    abstract void doJob();  //overridden in producer / consumer
+    public void mummyStart(){
+        for (Producer producer1 : producer) {
+            producer1.start();
+        }
+        
+        for (Consumer consumer1 : consumer) {
+            consumer1.start();
+        }
+    }
+    
+    protected void doJob(){}  //overridden in producer / consumer
 
     @Override
     public void run() {        

@@ -21,7 +21,8 @@ public class Mummy_ProdCons {
         // TODO code application logic here
         Queue<String> queue = new LinkedList<>();
         
-        
+        MummyThread m = new MummyThread((new Resource(queue)), "m", 1, 1);
+        m.mummyStart();
     }
     
 }
