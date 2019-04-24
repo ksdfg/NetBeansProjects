@@ -11,13 +11,15 @@ package mummy_prodcons;
  */
 abstract class MummyThread extends Thread {
     
-    protected static Resource res;    //The shared resource, a queue in this case
-    protected boolean shutdown;       //boolean to stop the process when it's work is done
-    String name;            //name of the process
+    public static Resource[] resList;    //The shared resource, a queue in this case
+    protected boolean shutdown;      //boolean to stop the process when it's work is done
+    String name;                     //name of the process
+    int resId;                    //index of the resource to get from resList       
 
-    public MummyThread(String name) {
+    public MummyThread(String name, int resId) {
         this.name = name;
-        shutdown = false;
+        this.resId = resId;
+        this.shutdown = false;
     }
     
     abstract void doJob();  //overridden in producer / consumer
@@ -25,7 +27,7 @@ abstract class MummyThread extends Thread {
     @Override
     public void run() {        
         do{
-            if(res.semaphore.tryLock()){    //gets lock and returns true if free (basically wait)
+            if(resList[resId].semaphore.tryLock()){    //gets lock and returns true if free (basically wait)
                 try{
                     this.doJob();
                 }
@@ -33,7 +35,7 @@ abstract class MummyThread extends Thread {
                     System.out.println(e.toString());
                 }
                 finally{
-                    res.semaphore.unlock();     //frees resource (basically signal)
+                    resList[resId].semaphore.unlock();     //frees resource (basically signal)
                 }
             }
         } while(!shutdown);

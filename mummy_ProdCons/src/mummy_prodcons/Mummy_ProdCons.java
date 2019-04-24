@@ -7,6 +7,7 @@ package mummy_prodcons;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 
 /**
  *
@@ -19,20 +20,15 @@ public class Mummy_ProdCons {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Queue<String> queue = new LinkedList<>();
+        System.out.print("Enter number of resources / queues : ");
+        int n = (new Scanner(System.in)).nextInt();
+        MummyThread.resList = new Resource[n];
         
-        MummyThread.res = new Resource(queue);
+        for(int i=0; i<n; i++)
+            MummyThread.resList[i] = new Resource(new LinkedList<>());
         
-        Producer[] p = new Producer[5];
-        Consumer[] c = new Consumer[5];
-        
-        for(int i=0; i<5; i++){
-            p[i] = new Producer("p" + (i+1));
-            p[i].start();
-            
-            c[i] = new Consumer("c" + (i+1));
-            c[i].start();
-        }
+        for(int i=0; i<n; i++)
+            (new Mummy("mummy-"+i, i, 2, 2)).start();
     }
     
 }

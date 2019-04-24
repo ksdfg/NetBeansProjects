@@ -11,17 +11,17 @@ package mummy_prodcons;
  */
 class Consumer extends MummyThread{
 
-    public Consumer(String name) {
-        super(name);
+    public Consumer(String name, int resId) {
+        super(name, resId);
     }
 
     @Override
-    void doJob() {
-        String s = MummyThread.res.queue.poll();    //remove front element from queue
+    protected void doJob() {
+        String s = resList[resId].queue.poll();    //remove front element from queue
         
         if(s != null){  //poll() returns null if queue empty
             try{
-                System.out.println(s + " removed by " + name + " from queue.\t" + MummyThread.res.queue);
+                System.out.println(s + " removed by " + name + " from queue " + resId + ".\t" + resList[resId].queue);
             }
             catch(java.util.ConcurrentModificationException e){    //in case of fail
                 System.out.println("HOUSTON, WE'VE GOT A PROBLEM\t" + name + " failed");

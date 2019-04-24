@@ -16,17 +16,17 @@ class Producer extends MummyThread{
     String[] data = {"1", "2", "3", "4", "stop"};   //all possible data that can be produced
     static Random r = new Random();     //to randomly pick one
     
-    public Producer(String name) {
-        super(name);
+    public Producer(String name, int resId) {
+        super(name, resId);
     }
 
     @Override
-    void doJob() {
+    protected void doJob() {
         String s = data[r.nextInt(5)];      //pick an element randomly
         
         try{
-            MummyThread.res.queue.offer(s); //add string to queue if queue not full
-            System.out.println(s + " entered by " + name + " into queue.\t" + MummyThread.res.queue);
+            resList[resId].queue.offer(s); //add string to queue if queue not full
+            System.out.println(s + " entered by " + name + " into queue " + resId + ".\t" + resList[resId].queue);
         }
         catch(java.util.ConcurrentModificationException e1){    //in case of fail
             System.out.println("HOUSTON, WE'VE GOT A PROBLEM\t" + name + " failed");
