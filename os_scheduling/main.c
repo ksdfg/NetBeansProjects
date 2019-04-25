@@ -113,8 +113,7 @@ void sjfPre(proc p[], int size){
     for(int j=0; j<size; j++)
         burst[j] = p[j].bt;
 	
-    printf("\n\tGant Chart for sjf pre-emptive\n");
-    printf("\n%d ", currTime);
+    printf("\n\tGant Chart for sjf pre-emptive\n\n");
 
     while(!shutdown){
         if(meow != i)
