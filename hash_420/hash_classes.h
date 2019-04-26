@@ -47,7 +47,9 @@ public:
         }
     }
     
-    void lWoP();   //linear hashing without probing
+    void lWoP();   //linear probing without replacement
+    
+    void lWP();    //linear probing with replacement
 };
 
 #endif /* HASH_CLASSES_H */

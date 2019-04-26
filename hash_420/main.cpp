@@ -24,8 +24,32 @@ using namespace std;
 int main(int argc, char** argv) {
 
     Hashing h;
-    h.lWoP();
-    h.display();
+    int meow;
+    
+    do{
+        cout<<"what to do, to do, todotodotodotodotodooo..."<<endl;
+        cout<<"1. linear probing without replacement"<<endl;
+        cout<<"2. linear probing with replacement"<<endl;
+        cout<<"choice ? ";
+        cin>>meow;
+        
+        switch(meow){
+            case 1:
+                h.lWoP();
+                break;
+                
+            case 2:
+                h.lWP();
+                break;
+                
+            default:
+                cout<<endl<<"did you get so confused by the pink panther theme";
+                cout<<" song in the menu that you forgot what options there were?";
+        }
+        
+        cout<<endl<<"want to perform another operation? 1 or 0 : ";
+        cin>>meow;
+    } while(meow);
     
     return 0;
 }
