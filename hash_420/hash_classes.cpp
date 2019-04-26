@@ -12,10 +12,12 @@ using namespace std;
 
 void Hashing::lWoP(){
     Student meow;   //to take i/p of student
-    int index = 0;  //to store hash index of record to insert
+    int index = 0, nyan;  //to store hash index of record to insert
     bool shutdown = false;  //control outer loop : how many entries
     
     do{
+        nyan = 0;   //reset value
+        
         //take input of student
         cout<<endl<<"enter name of student : ";
         cin>>meow.name;
@@ -24,13 +26,21 @@ void Hashing::lWoP(){
         cout<<"enter grade of student : ";
         cin>>meow.grade;
         
-        index = meow.rollNo % MAX;  //calculate initial hash index
+        nyan = index = meow.rollNo % MAX;  //calculate initial hash index
         
         while(hashtable[index].rollNo != -1){  //calculating correct hash index
             index = ++index % MAX;
+            shutdown = true;
+            if(index == nyan)
+                break;
         }
         
-        hashtable[index] = meow;
+        if(index == nyan && shutdown){
+            cout<<endl<<"can't enter, no space"<<endl;
+        }
+        else{
+            hashtable[index] = meow;
+        }
         
         cout<<endl<<"do you want to enter another student? 1 or 0 : ";
         cin>>index; //using index to store i/p
