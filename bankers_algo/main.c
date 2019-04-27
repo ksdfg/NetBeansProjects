@@ -43,6 +43,68 @@ void dispMatrix(int r, int c, int matrix[r][c]){
     }
 }
 
+int safetySequence(int proc, int res, int alloc[proc][res], int need[proc][res], int available[res]){
+    int isSafe = 0, cnt = 0;    //isSafe whether deadlock happens or not, cnt is counter for iterations
+    int meow = -1, nyan;   //temp var
+    
+    int work[res];  //copy of available since we don't want changes in arg
+    for(int i=0; i<res; i++)
+        work[i] = available[i];
+    
+    int finish[proc];   //keeps tracked of finished processes
+    for(int i=0; i<proc; i++)
+        finish[i] = 0;
+    
+    printf("\nthe safety sequence is : \n");
+    
+    while(++cnt < (res*proc*proc)){
+        if(++meow == proc)
+            meow = 0;
+        
+        if(finish[meow] == 1)
+            continue;
+        
+        for(int i=0; i<res; i++){
+            if(need[meow][i] > work[i]){
+                nyan = 1;
+                break;
+            }
+            else{
+                nyan = 0;
+            }
+        }
+        
+        if(nyan)
+            continue;
+        
+        for(int i=0; i<res; i++)
+            work[i] += alloc[meow][i];
+        
+        finish[meow] = 1;
+        
+        printf("\np%d\nwork = { ", meow);
+        for(int i=0; i<res; i++)
+            printf("%d ", work[i]);
+        printf("}\nfinish = { ");
+        for(int i=0; i<proc; i++)
+            printf("%d ", finish[i]);
+        printf("}\n");
+        
+        nyan = 1;
+        for(int i=0; i<proc; i++)
+            if(finish[i] == 0){
+                nyan = 0;
+                break;
+            }
+        if(nyan){
+            isSafe = 1;                
+            break;
+        }
+    }
+    
+    return isSafe;
+}
+
 int main(int argc, char** argv) {
     //get number of resource types and processes
     int res, proc;
@@ -87,6 +149,8 @@ int main(int argc, char** argv) {
     //display need matrix
     printf("\nNEED matrix =\n");
     dispMatrix(proc, res, need);
+    
+    safetySequence(proc, res, alloc, need, available);  //call safety sequence method
     
     return (EXIT_SUCCESS);
 }
