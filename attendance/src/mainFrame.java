@@ -1,3 +1,8 @@
+
+import com.bulenkov.darcula.DarculaLaf;
+import javax.swing.UIManager;
+import javax.swing.plaf.basic.BasicLookAndFeel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -25,7 +30,8 @@ public class mainFrame extends javax.swing.JFrame {
     /**
      * Creates new form mainFrame
      */
-    public mainFrame() {
+    public mainFrame() {    
+        
         try {
             meow = (JSONObject) new JSONParser().parse(new FileReader("meow.json"));
         } catch (FileNotFoundException ex) {
@@ -33,8 +39,6 @@ public class mainFrame extends javax.swing.JFrame {
         } catch (IOException | ParseException ex) {
             Logger.getLogger(mainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        meow.put("attendance", 0);
         
         initComponents();
     }
@@ -48,206 +52,235 @@ public class mainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dsT = new javax.swing.JLabel();
+        dsTh = new javax.swing.JLabel();
         dsPr = new javax.swing.JLabel();
         dsThAtt = new javax.swing.JButton();
-        dsThMiss = new javax.swing.JButton();
         dsPrAtt = new javax.swing.JButton();
-        dsPrMiss = new javax.swing.JButton();
         sepmThAtt = new javax.swing.JButton();
         sepmTh = new javax.swing.JLabel();
-        sepmThMiss = new javax.swing.JButton();
         sepmPrAtt = new javax.swing.JButton();
         sepmPr = new javax.swing.JLabel();
-        sepmPrMiss = new javax.swing.JButton();
         osThAtt = new javax.swing.JButton();
         osTh = new javax.swing.JLabel();
-        osThMiss = new javax.swing.JButton();
         osPrAtt = new javax.swing.JButton();
         osPr = new javax.swing.JLabel();
-        osPrMiss = new javax.swing.JButton();
         mmcThAtt = new javax.swing.JButton();
         mmcTh = new javax.swing.JLabel();
-        mmcThMiss = new javax.swing.JButton();
         mmcPrAtt = new javax.swing.JButton();
         mmcPr = new javax.swing.JLabel();
-        mmcPrMiss = new javax.swing.JButton();
         attendaceDisplay = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        dsT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dsT.setText("DS Theory");
-
-        dsPr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dsPr.setText("DS Pracs");
-
-        dsThAtt.setText("+");
-
-        dsThMiss.setText("-");
-
-        dsPrAtt.setText("+");
-
-        dsPrMiss.setText("-");
-
-        sepmThAtt.setText("+");
-
-        sepmTh.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        sepmTh.setText("SEPM Theory");
-
-        sepmThMiss.setText("-");
-        sepmThMiss.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sepmThMissActionPerformed(evt);
+        setPreferredSize(new java.awt.Dimension(600, 600));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
             }
         });
 
+        dsTh.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        dsTh.setText("0");
+        dsTh.setBorder(javax.swing.BorderFactory.createTitledBorder("DS Theory"));
+
+        dsPr.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        dsPr.setText("0");
+        dsPr.setBorder(javax.swing.BorderFactory.createTitledBorder("DS Pracs"));
+
+        dsThAtt.setText("+");
+
+        dsPrAtt.setText("+");
+
+        sepmThAtt.setText("+");
+
+        sepmTh.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        sepmTh.setText("0");
+        sepmTh.setBorder(javax.swing.BorderFactory.createTitledBorder("SEPM Theory"));
+
         sepmPrAtt.setText("+");
 
-        sepmPr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        sepmPr.setText("SEPM Pracs");
-
-        sepmPrMiss.setText("-");
+        sepmPr.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        sepmPr.setText("0");
+        sepmPr.setBorder(javax.swing.BorderFactory.createTitledBorder("SEPM Pracs"));
 
         osThAtt.setText("+");
 
-        osTh.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        osTh.setText("OS Theory");
-
-        osThMiss.setText("-");
+        osTh.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        osTh.setText("0");
+        osTh.setBorder(javax.swing.BorderFactory.createTitledBorder("OS Theory"));
 
         osPrAtt.setText("+");
 
-        osPr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        osPr.setText("OS Pracs");
-
-        osPrMiss.setText("-");
+        osPr.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        osPr.setText("0");
+        osPr.setBorder(javax.swing.BorderFactory.createTitledBorder("OS Pracs"));
 
         mmcThAtt.setText("+");
 
-        mmcTh.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        mmcTh.setText("MMC Theory");
-
-        mmcThMiss.setText("-");
+        mmcTh.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        mmcTh.setText("0");
+        mmcTh.setBorder(javax.swing.BorderFactory.createTitledBorder("MMC Theory"));
 
         mmcPrAtt.setText("+");
 
-        mmcPr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        mmcPr.setText("MMC Pracs");
-
-        mmcPrMiss.setText("-");
+        mmcPr.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        mmcPr.setText("0");
+        mmcPr.setBorder(javax.swing.BorderFactory.createTitledBorder("MMC Pracs"));
 
         attendaceDisplay.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        attendaceDisplay.setText("0");
         attendaceDisplay.setBorder(javax.swing.BorderFactory.createTitledBorder("Attendance"));
+
+        jButton9.setText("-");
+
+        jButton10.setText("-");
+
+        jButton11.setText("-");
+
+        jButton12.setText("-");
+
+        jButton13.setText("-");
+
+        jButton14.setText("-");
+
+        jButton15.setText("-");
+
+        jButton16.setText("-");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap(112, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(attendaceDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(mmcThAtt)
                                 .addGap(18, 18, 18)
                                 .addComponent(mmcTh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(osPrAtt)
                                 .addGap(18, 18, 18)
                                 .addComponent(osPr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(osThAtt)
                                 .addGap(18, 18, 18)
                                 .addComponent(osTh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(sepmPrAtt)
                                 .addGap(18, 18, 18)
                                 .addComponent(sepmPr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(sepmThAtt)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(dsPrAtt)
                                 .addGap(18, 18, 18)
-                                .addComponent(sepmTh))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(dsThAtt)
-                                    .addComponent(dsPrAtt))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(dsT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(dsPr, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(dsPr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(mmcPrAtt)
                                 .addGap(18, 18, 18)
-                                .addComponent(mmcPr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(mmcPr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(sepmThAtt)
+                                .addGap(18, 18, 18)
+                                .addComponent(sepmTh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(dsThAtt)
+                                .addGap(18, 18, 18)
+                                .addComponent(dsTh, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dsThMiss)
-                            .addComponent(dsPrMiss)
-                            .addComponent(sepmThMiss)
-                            .addComponent(sepmPrMiss)
-                            .addComponent(osThMiss)
-                            .addComponent(osPrMiss)
-                            .addComponent(mmcThMiss)
-                            .addComponent(mmcPrMiss))))
-                .addContainerGap(109, Short.MAX_VALUE))
+                            .addComponent(jButton9)
+                            .addComponent(jButton10)
+                            .addComponent(jButton11)
+                            .addComponent(jButton12)
+                            .addComponent(jButton13)
+                            .addComponent(jButton14)
+                            .addComponent(jButton15)
+                            .addComponent(jButton16))))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dsT)
-                    .addComponent(dsThAtt)
-                    .addComponent(dsThMiss))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(dsTh)
+                    .addComponent(jButton9)
+                    .addComponent(dsThAtt))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dsPr)
                     .addComponent(dsPrAtt)
-                    .addComponent(dsPrMiss))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jButton12))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sepmTh)
                     .addComponent(sepmThAtt)
-                    .addComponent(sepmThMiss))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jButton10))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sepmPr)
-                    .addComponent(sepmPrAtt)
-                    .addComponent(sepmPrMiss))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jButton11)
+                    .addComponent(sepmPrAtt))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(osTh)
                     .addComponent(osThAtt)
-                    .addComponent(osThMiss))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jButton13))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(osPr)
                     .addComponent(osPrAtt)
-                    .addComponent(osPrMiss))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jButton14))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mmcTh)
                     .addComponent(mmcThAtt)
-                    .addComponent(mmcThMiss))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jButton15))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mmcPr)
                     .addComponent(mmcPrAtt)
-                    .addComponent(mmcPrMiss))
+                    .addComponent(jButton16))
                 .addGap(18, 18, 18)
                 .addComponent(attendaceDisplay)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void sepmThMissActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sepmThMissActionPerformed
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
-    }//GEN-LAST:event_sepmThMissActionPerformed
+        
+        //ds
+        dsTh.setText(meow.get("dsTh") + " / " + meow.get("dsThTot"));
+        dsPr.setText(meow.get("dsPr") + " / " + meow.get("dsPrTot"));
+        
+        //os
+        osTh.setText(meow.get("osTh") + " / " + meow.get("osThTot"));
+        osPr.setText(meow.get("osPr") + " / " + meow.get("osPrTot"));
+        
+        //sepm
+        sepmTh.setText(meow.get("sepmTh") + " / " + meow.get("sepmThTot"));
+        sepmPr.setText(meow.get("sepmPr") + " / " + meow.get("sepmPrTot"));
+        
+        //mmc
+        mmcTh.setText(meow.get("sepmTh") + " / " + meow.get("sepmThTot"));
+        mmcPr.setText(meow.get("sepmPr") + " / " + meow.get("sepmPrTot"));
+        
+        //overall attendance
+        attendaceDisplay.setText("" + meow.get("attendance"));
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -259,18 +292,8 @@ public class mainFrame extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(mainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(mainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(mainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            BasicLookAndFeel darcula = new DarculaLaf();
+            UIManager.setLookAndFeel(darcula);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(mainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
@@ -286,27 +309,27 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel attendaceDisplay;
     private javax.swing.JLabel dsPr;
     private javax.swing.JButton dsPrAtt;
-    private javax.swing.JButton dsPrMiss;
-    private javax.swing.JLabel dsT;
+    private javax.swing.JLabel dsTh;
     private javax.swing.JButton dsThAtt;
-    private javax.swing.JButton dsThMiss;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel mmcPr;
     private javax.swing.JButton mmcPrAtt;
-    private javax.swing.JButton mmcPrMiss;
     private javax.swing.JLabel mmcTh;
     private javax.swing.JButton mmcThAtt;
-    private javax.swing.JButton mmcThMiss;
     private javax.swing.JLabel osPr;
     private javax.swing.JButton osPrAtt;
-    private javax.swing.JButton osPrMiss;
     private javax.swing.JLabel osTh;
     private javax.swing.JButton osThAtt;
-    private javax.swing.JButton osThMiss;
     private javax.swing.JLabel sepmPr;
     private javax.swing.JButton sepmPrAtt;
-    private javax.swing.JButton sepmPrMiss;
     private javax.swing.JLabel sepmTh;
     private javax.swing.JButton sepmThAtt;
-    private javax.swing.JButton sepmThMiss;
     // End of variables declaration//GEN-END:variables
 }
