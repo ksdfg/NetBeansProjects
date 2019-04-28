@@ -21,6 +21,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 
 public class mainFrame extends javax.swing.JFrame {
     
@@ -69,20 +70,20 @@ public class mainFrame extends javax.swing.JFrame {
         mmcPrAtt = new javax.swing.JButton();
         mmcPr = new javax.swing.JLabel();
         attendaceDisplay = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
+        dsThMiss = new javax.swing.JButton();
+        sepmThMiss = new javax.swing.JButton();
+        sepmPrMiss = new javax.swing.JButton();
+        dsPrMiss = new javax.swing.JButton();
+        osThMiss = new javax.swing.JButton();
+        osPrMiss = new javax.swing.JButton();
+        mmcThMiss = new javax.swing.JButton();
+        mmcPrMiss = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 600));
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
@@ -138,21 +139,21 @@ public class mainFrame extends javax.swing.JFrame {
         attendaceDisplay.setText("0");
         attendaceDisplay.setBorder(javax.swing.BorderFactory.createTitledBorder("Attendance"));
 
-        jButton9.setText("-");
+        dsThMiss.setText("-");
 
-        jButton10.setText("-");
+        sepmThMiss.setText("-");
 
-        jButton11.setText("-");
+        sepmPrMiss.setText("-");
 
-        jButton12.setText("-");
+        dsPrMiss.setText("-");
 
-        jButton13.setText("-");
+        osThMiss.setText("-");
 
-        jButton14.setText("-");
+        osPrMiss.setText("-");
 
-        jButton15.setText("-");
+        mmcThMiss.setText("-");
 
-        jButton16.setText("-");
+        mmcPrMiss.setText("-");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -198,14 +199,14 @@ public class mainFrame extends javax.swing.JFrame {
                                 .addComponent(dsTh, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton9)
-                            .addComponent(jButton10)
-                            .addComponent(jButton11)
-                            .addComponent(jButton12)
-                            .addComponent(jButton13)
-                            .addComponent(jButton14)
-                            .addComponent(jButton15)
-                            .addComponent(jButton16))))
+                            .addComponent(dsThMiss)
+                            .addComponent(sepmThMiss)
+                            .addComponent(sepmPrMiss)
+                            .addComponent(dsPrMiss)
+                            .addComponent(osThMiss)
+                            .addComponent(osPrMiss)
+                            .addComponent(mmcThMiss)
+                            .addComponent(mmcPrMiss))))
                 .addContainerGap(112, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -214,43 +215,43 @@ public class mainFrame extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dsTh)
-                    .addComponent(jButton9)
+                    .addComponent(dsThMiss)
                     .addComponent(dsThAtt))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dsPr)
                     .addComponent(dsPrAtt)
-                    .addComponent(jButton12))
+                    .addComponent(dsPrMiss))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sepmTh)
                     .addComponent(sepmThAtt)
-                    .addComponent(jButton10))
+                    .addComponent(sepmThMiss))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sepmPr)
-                    .addComponent(jButton11)
+                    .addComponent(sepmPrMiss)
                     .addComponent(sepmPrAtt))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(osTh)
                     .addComponent(osThAtt)
-                    .addComponent(jButton13))
+                    .addComponent(osThMiss))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(osPr)
                     .addComponent(osPrAtt)
-                    .addComponent(jButton14))
+                    .addComponent(osPrMiss))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mmcTh)
                     .addComponent(mmcThAtt)
-                    .addComponent(jButton15))
+                    .addComponent(mmcThMiss))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mmcPr)
                     .addComponent(mmcPrAtt)
-                    .addComponent(jButton16))
+                    .addComponent(mmcPrMiss))
                 .addGap(18, 18, 18)
                 .addComponent(attendaceDisplay)
                 .addContainerGap(10, Short.MAX_VALUE))
@@ -259,7 +260,64 @@ public class mainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+    
+    public double calculate(){
+        long att = 0, tot = 0;
+        double nyan = 0;   //var that stores attendance lel
+        
+        //calculate total number of lectures attended
+        att += (long) meow.get("dsTh");
+        att += (long) meow.get("dsPr");
+        att += (long) meow.get("osTh");
+        att += (long) meow.get("osPr");
+        att += (long) meow.get("sepmTh");
+        att += (long) meow.get("sepmPr");
+        att += (long) meow.get("mmcTh");
+        att += (long) meow.get("mmcPr");
+        
+        //calculate total number of lectures occurred
+        tot += (long) meow.get("dsThTot");
+        tot += (long) meow.get("dsPrTot");
+        tot += (long) meow.get("osThTot");
+        tot += (long) meow.get("osPrTot");
+        tot += (long) meow.get("sepmThTot");
+        tot += (long) meow.get("sepmPrTot");
+        tot += (long) meow.get("mmcThTot");
+        tot += (long) meow.get("mmcPrTot");
+        
+        if(tot != 0)
+            nyan = att * 100 / tot; //calculate total attendance
+        
+        return nyan;
+    }
+    
+    public void change(String subject, JLabel display, boolean attended){
+        long att = (long) meow.get(subject);  //get numbr of lectures attended
+        if(attended){
+            att++;
+            meow.put(subject, att); //change number of lectures attended in json
+        }
+        
+        long tot = (long) meow.get(subject + "Tot");  //get total number of lectures
+        tot++;
+        meow.put(subject+"Tot", tot);   //change total number of lectures in json
+        
+        
+        //apply changes to json file
+        try (PrintWriter pw = new PrintWriter("meow.json")) {
+            pw.write(meow.toJSONString());
+            pw.flush();
+            pw.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(mainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        display.setText(att + " / " + tot);
+        
+        attendaceDisplay.setText("" + calculate());
+    }
+    
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         
         //ds
@@ -279,8 +337,8 @@ public class mainFrame extends javax.swing.JFrame {
         mmcPr.setText(meow.get("sepmPr") + " / " + meow.get("sepmPrTot"));
         
         //overall attendance
-        attendaceDisplay.setText("" + meow.get("attendance"));
-    }//GEN-LAST:event_formWindowActivated
+        attendaceDisplay.setText("" + calculate());
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -309,27 +367,27 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel attendaceDisplay;
     private javax.swing.JLabel dsPr;
     private javax.swing.JButton dsPrAtt;
+    private javax.swing.JButton dsPrMiss;
     private javax.swing.JLabel dsTh;
     private javax.swing.JButton dsThAtt;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton dsThMiss;
     private javax.swing.JLabel mmcPr;
     private javax.swing.JButton mmcPrAtt;
+    private javax.swing.JButton mmcPrMiss;
     private javax.swing.JLabel mmcTh;
     private javax.swing.JButton mmcThAtt;
+    private javax.swing.JButton mmcThMiss;
     private javax.swing.JLabel osPr;
     private javax.swing.JButton osPrAtt;
+    private javax.swing.JButton osPrMiss;
     private javax.swing.JLabel osTh;
     private javax.swing.JButton osThAtt;
+    private javax.swing.JButton osThMiss;
     private javax.swing.JLabel sepmPr;
     private javax.swing.JButton sepmPrAtt;
+    private javax.swing.JButton sepmPrMiss;
     private javax.swing.JLabel sepmTh;
     private javax.swing.JButton sepmThAtt;
+    private javax.swing.JButton sepmThMiss;
     // End of variables declaration//GEN-END:variables
 }
