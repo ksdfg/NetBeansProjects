@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="attendaceDisplay" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="mmcThAtt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="mmcTh" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="osPrAtt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="osPr" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="osThAtt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="osTh" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="sepmPrAtt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="sepmPr" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="sepmThAtt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="sepmTh" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="dsThAtt" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dsPrAtt" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="dsT" max="32767" attributes="0"/>
+                                  <Component id="dsPr" min="-2" pref="58" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="mmcPrAtt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="mmcPr" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="dsThMiss" min="-2" max="-2" attributes="0"/>
+                          <Component id="dsPrMiss" min="-2" max="-2" attributes="0"/>
+                          <Component id="sepmThMiss" min="-2" max="-2" attributes="0"/>
+                          <Component id="sepmPrMiss" min="-2" max="-2" attributes="0"/>
+                          <Component id="osThMiss" min="-2" max="-2" attributes="0"/>
+                          <Component id="osPrMiss" min="-2" max="-2" attributes="0"/>
+                          <Component id="mmcThMiss" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="mmcPrMiss" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="109" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="dsT" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dsThAtt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dsThMiss" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="dsPr" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dsPrAtt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dsPrMiss" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="sepmTh" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="sepmThAtt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="sepmThMiss" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="sepmPr" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="sepmPrAtt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="sepmPrMiss" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="osTh" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="osThAtt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="osThMiss" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="osPr" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="osPrAtt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="osPrMiss" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="mmcTh" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="mmcThAtt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="mmcThMiss" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="mmcPr" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="mmcPrAtt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="mmcPrMiss" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="attendaceDisplay" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="44" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="dsT">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="DS Theory"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="dsPr">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="DS Pracs"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="dsThAtt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="+"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="dsThMiss">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="dsPrAtt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="+"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="dsPrMiss">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="sepmThAtt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="+"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="sepmTh">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="SEPM Theory"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="sepmThMiss">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sepmThMissActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="sepmPrAtt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="+"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="sepmPr">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="SEPM Pracs"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="sepmPrMiss">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="osThAtt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="+"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="osTh">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="OS Theory"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="osThMiss">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="osPrAtt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="+"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="osPr">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="OS Pracs"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="osPrMiss">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="mmcThAtt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="+"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="mmcTh">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="MMC Theory"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="mmcThMiss">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="mmcPrAtt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="+"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="mmcPr">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="MMC Pracs"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="mmcPrMiss">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="attendaceDisplay">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="11"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Attendance"/>
+          </Border>
+        </Property>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
