@@ -96,6 +96,11 @@ public class mainFrame extends javax.swing.JFrame {
         dsPr.setBorder(javax.swing.BorderFactory.createTitledBorder("DS Pracs"));
 
         dsThAtt.setText("+");
+        dsThAtt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dsThAttActionPerformed(evt);
+            }
+        });
 
         dsPrAtt.setText("+");
 
@@ -140,6 +145,11 @@ public class mainFrame extends javax.swing.JFrame {
         attendaceDisplay.setBorder(javax.swing.BorderFactory.createTitledBorder("Attendance"));
 
         dsThMiss.setText("-");
+        dsThMiss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dsThMissActionPerformed(evt);
+            }
+        });
 
         sepmThMiss.setText("-");
 
@@ -260,7 +270,7 @@ public class mainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    //calculate total attendance
     public double calculate(){
         long att = 0, tot = 0;
         double nyan = 0;   //var that stores attendance lel
@@ -291,6 +301,7 @@ public class mainFrame extends javax.swing.JFrame {
         return nyan;
     }
     
+    //change the attendance in a subject
     public void change(String subject, JLabel display, boolean attended){
         long att = (long) meow.get(subject);  //get numbr of lectures attended
         if(attended){
@@ -317,6 +328,7 @@ public class mainFrame extends javax.swing.JFrame {
         attendaceDisplay.setText("" + calculate());
     }
     
+    //initially display current status
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         
@@ -339,6 +351,16 @@ public class mainFrame extends javax.swing.JFrame {
         //overall attendance
         attendaceDisplay.setText("" + calculate());
     }//GEN-LAST:event_formWindowOpened
+
+    private void dsThAttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dsThAttActionPerformed
+        // TODO add your handling code here:
+        change("dsTh", dsTh, true);
+    }//GEN-LAST:event_dsThAttActionPerformed
+
+    private void dsThMissActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dsThMissActionPerformed
+        // TODO add your handling code here:
+        change("dsTh", dsTh, false);
+    }//GEN-LAST:event_dsThMissActionPerformed
 
     /**
      * @param args the command line arguments
