@@ -88,11 +88,11 @@ public class mainFrame extends javax.swing.JFrame {
         });
 
         dsTh.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        dsTh.setText("0");
+        dsTh.setText("1");
         dsTh.setBorder(javax.swing.BorderFactory.createTitledBorder("DS Theory"));
 
         dsPr.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        dsPr.setText("0");
+        dsPr.setText("2");
         dsPr.setBorder(javax.swing.BorderFactory.createTitledBorder("DS Pracs"));
 
         dsThAtt.setText("+");
@@ -103,38 +103,73 @@ public class mainFrame extends javax.swing.JFrame {
         });
 
         dsPrAtt.setText("+");
+        dsPrAtt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dsPrAttActionPerformed(evt);
+            }
+        });
 
         sepmThAtt.setText("+");
+        sepmThAtt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sepmThAttActionPerformed(evt);
+            }
+        });
 
         sepmTh.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        sepmTh.setText("0");
+        sepmTh.setText("3");
         sepmTh.setBorder(javax.swing.BorderFactory.createTitledBorder("SEPM Theory"));
 
         sepmPrAtt.setText("+");
+        sepmPrAtt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sepmPrAttActionPerformed(evt);
+            }
+        });
 
         sepmPr.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        sepmPr.setText("0");
+        sepmPr.setText("4");
         sepmPr.setBorder(javax.swing.BorderFactory.createTitledBorder("SEPM Pracs"));
 
         osThAtt.setText("+");
+        osThAtt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                osThAttActionPerformed(evt);
+            }
+        });
 
         osTh.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         osTh.setText("0");
         osTh.setBorder(javax.swing.BorderFactory.createTitledBorder("OS Theory"));
 
         osPrAtt.setText("+");
+        osPrAtt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                osPrAttActionPerformed(evt);
+            }
+        });
 
         osPr.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         osPr.setText("0");
         osPr.setBorder(javax.swing.BorderFactory.createTitledBorder("OS Pracs"));
 
         mmcThAtt.setText("+");
+        mmcThAtt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mmcThAttActionPerformed(evt);
+            }
+        });
 
         mmcTh.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         mmcTh.setText("0");
         mmcTh.setBorder(javax.swing.BorderFactory.createTitledBorder("MMC Theory"));
 
         mmcPrAtt.setText("+");
+        mmcPrAtt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mmcPrAttActionPerformed(evt);
+            }
+        });
 
         mmcPr.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         mmcPr.setText("0");
@@ -152,18 +187,53 @@ public class mainFrame extends javax.swing.JFrame {
         });
 
         sepmThMiss.setText("-");
+        sepmThMiss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sepmThMissActionPerformed(evt);
+            }
+        });
 
         sepmPrMiss.setText("-");
+        sepmPrMiss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sepmPrMissActionPerformed(evt);
+            }
+        });
 
         dsPrMiss.setText("-");
+        dsPrMiss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dsPrMissActionPerformed(evt);
+            }
+        });
 
         osThMiss.setText("-");
+        osThMiss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                osThMissActionPerformed(evt);
+            }
+        });
 
         osPrMiss.setText("-");
+        osPrMiss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                osPrMissActionPerformed(evt);
+            }
+        });
 
         mmcThMiss.setText("-");
+        mmcThMiss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mmcThMissActionPerformed(evt);
+            }
+        });
 
         mmcPrMiss.setText("-");
+        mmcPrMiss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mmcPrMissActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -264,7 +334,7 @@ public class mainFrame extends javax.swing.JFrame {
                     .addComponent(mmcPrMiss))
                 .addGap(18, 18, 18)
                 .addComponent(attendaceDisplay)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -361,6 +431,76 @@ public class mainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         change("dsTh", dsTh, false);
     }//GEN-LAST:event_dsThMissActionPerformed
+
+    private void dsPrAttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dsPrAttActionPerformed
+        // TODO add your handling code here:
+        change("dsPr", dsPr, true);
+    }//GEN-LAST:event_dsPrAttActionPerformed
+
+    private void dsPrMissActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dsPrMissActionPerformed
+        // TODO add your handling code here:
+        change("dsPr", dsPr, false);
+    }//GEN-LAST:event_dsPrMissActionPerformed
+
+    private void sepmThAttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sepmThAttActionPerformed
+        // TODO add your handling code here:
+        change("sepmTh", sepmTh, true);
+    }//GEN-LAST:event_sepmThAttActionPerformed
+
+    private void sepmPrAttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sepmPrAttActionPerformed
+        // TODO add your handling code here:
+        change("sepmPr", sepmPr, true);
+    }//GEN-LAST:event_sepmPrAttActionPerformed
+
+    private void sepmThMissActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sepmThMissActionPerformed
+        // TODO add your handling code here:
+        change("sepmTh", sepmTh, false);
+    }//GEN-LAST:event_sepmThMissActionPerformed
+
+    private void sepmPrMissActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sepmPrMissActionPerformed
+        // TODO add your handling code here:
+        change("sepmPr", sepmPr, false);
+    }//GEN-LAST:event_sepmPrMissActionPerformed
+
+    private void osThAttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_osThAttActionPerformed
+        // TODO add your handling code here:
+        change("osTh", osTh, true);
+    }//GEN-LAST:event_osThAttActionPerformed
+
+    private void osThMissActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_osThMissActionPerformed
+        // TODO add your handling code here:
+        change("osTh", osTh, false);
+    }//GEN-LAST:event_osThMissActionPerformed
+
+    private void osPrAttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_osPrAttActionPerformed
+        // TODO add your handling code here:
+        change("osPr", osPr, true);
+    }//GEN-LAST:event_osPrAttActionPerformed
+
+    private void osPrMissActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_osPrMissActionPerformed
+        // TODO add your handling code here:
+        change("osPr", osPr, false);
+    }//GEN-LAST:event_osPrMissActionPerformed
+
+    private void mmcThAttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mmcThAttActionPerformed
+        // TODO add your handling code here:
+        change("mmcTh", mmcTh, true);
+    }//GEN-LAST:event_mmcThAttActionPerformed
+
+    private void mmcThMissActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mmcThMissActionPerformed
+        // TODO add your handling code here:
+        change("mmcTh", mmcTh, false);
+    }//GEN-LAST:event_mmcThMissActionPerformed
+
+    private void mmcPrAttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mmcPrAttActionPerformed
+        // TODO add your handling code here:
+        change("mmcPr", mmcPr, true);
+    }//GEN-LAST:event_mmcPrAttActionPerformed
+
+    private void mmcPrMissActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mmcPrMissActionPerformed
+        // TODO add your handling code here:
+        change("mmcPr", mmcPr, false);
+    }//GEN-LAST:event_mmcPrMissActionPerformed
 
     /**
      * @param args the command line arguments
