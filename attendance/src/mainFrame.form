@@ -109,10 +109,12 @@
                   <Component id="dsPrMiss" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="sepmTh" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="sepmThAtt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="sepmThMiss" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="sepmThAtt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="sepmThMiss" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -127,10 +129,12 @@
                   <Component id="osThMiss" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="osPr" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="osPrAtt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="osPrMiss" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="osPrAtt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="osPrMiss" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
