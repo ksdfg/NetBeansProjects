@@ -104,7 +104,7 @@ void fcfs(proc p[], int size){	//print gant chart and calculate waiting time and
 	
 }
 
-void sjfPre(proc p[], int size){
+void srtn(proc p[], int size){
     
     int currTime = p[0].at, t_wt = 0, t_tat = 0;
     int i = 0, shutdown = 0, meow = -1;
@@ -169,7 +169,7 @@ int main(int argc, char** argv) {
     dispProcs(p, n);
 
     fcfs(p, n);
-    sjfPre(p, n);
+    srtn(p, n);
     
     return (EXIT_SUCCESS);
 }
