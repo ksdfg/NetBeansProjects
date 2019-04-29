@@ -150,7 +150,10 @@ int main(int argc, char** argv) {
     printf("\nNEED matrix =\n");
     dispMatrix(proc, res, need);
     
-    safetySequence(proc, res, alloc, need, available);  //call safety sequence method
+    if(safetySequence(proc, res, alloc, need, available))  //call safety sequence method
+        printf("\nThis sequence is safe\n");
+    else
+        printf("\nThis sequence is not safe");
     
     return (EXIT_SUCCESS);
 }
