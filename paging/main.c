@@ -68,7 +68,7 @@ int fifo(int ref[], int refLen){    //find number of page faults
         fault++;
     }
     
-    return fault;   //kaeritai
+    return fault;   //kaeritai -_-
 }
 
 int main(int argc, char** argv) {
