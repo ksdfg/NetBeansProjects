@@ -56,6 +56,70 @@ int fifo(int ref[], int refLen, int noFrames){    //find number of page faults
     return fault;   //kaeritai -_-
 }
 
+int lru(int ref[], int refLen, int noFrames){
+    int fault = 0, meow;    //fault stores total no. of page faults, meow is temp
+    int frames[noFrames][2];    //[frame number] [time since last referenced]
+    
+    //initialize frames arr
+    for(int i=0; i<noFrames; i++){
+        frames[i][0] = -1;
+        frames[i][1] = 0;
+    }
+    
+    for(int i=0; i<refLen; i++){    //traverse through reference string
+        meow = 0;
+        
+        printf("\n%d", ref[i]); //current page number
+        
+        for(int j=0; j<noFrames; j++)
+            if(frames[j][0] == ref[i]){ //if page already in one of the frames
+                frames[j][1] = 0;   //reset time since last referenced
+                meow = 1;
+                break;
+            }
+        
+        if(meow)
+            continue;    //go to next page number
+        
+        //find if any empty spot
+        meow = 1;
+        for(int j=0; j<noFrames; j++)
+            if(frames[j][0] == -1){
+                frames[j][0] = ref[i];
+                frames[j][1] = 0;
+                meow = 0;
+                break;
+            }
+        
+        if(meow){   //if couldn't find an empty space
+            //find least recently used page
+            meow = 0;
+            for(int i=1; i<noFrames; i++)
+                if(frames[i][1] > frames[meow][1])
+                    meow = i;
+
+            frames[meow][0] = ref[i];   //replace
+            frames[meow][1] = 0;        //set time since last referenced        
+        }
+
+        //update all frames
+        for(int i=0; i<noFrames; i++)
+            frames[i][1]++;
+
+        printf("\t:\t");
+        for(int i=0; i<noFrames; i++){ //print pages mapped to each frame
+            if(frames[i][0] == -1)
+                printf("-\t");
+            else
+                printf("%d\t", frames[i][0]);
+        }
+
+        fault++;    //since there was a page fault ~.~
+    }
+    
+    return fault;   //kaeritai -_-
+}
+
 int main(int argc, char** argv) {
     
     int frames; //total number of frames available
@@ -63,15 +127,19 @@ int main(int argc, char** argv) {
     scanf("%d", &frames);
     
     int refLen = 0; //length of reference string
-    printf("Enter length of reference string : ");
+    printf("\nEnter length of reference string : ");
     scanf("%d", &refLen);
     
     int ref[refLen];    //reference string
-    printf("\nEnter reference string :\n");
+    printf("Enter reference string :\n");
     for(int i=0; i<refLen; i++)
         scanf("%d", &ref[i]);   //taking input of reference string
     
+    printf("\nFIFO :\n");
     printf("\n\nfaults = %d", fifo(ref, refLen, frames));   //call fifo, print number of page faults
+    
+    printf("\n\nLRU :\n");
+    printf("\n\nfaults = %d", lru(ref, refLen, frames));   //call lru, print number of page faults
 
     return (EXIT_SUCCESS);
 }
