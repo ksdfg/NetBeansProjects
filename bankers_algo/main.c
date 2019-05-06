@@ -33,7 +33,12 @@ void enter(int r, int c, int matrix[r][c]){
 
 //display a matrix
 void dispMatrix(int r, int c, int matrix[r][c]){
-    printf("  \tr0\tr1\tr2\n"); //print headings
+    //print headings
+    printf("  \t");
+    for(int i=0; i<c; i++)
+        printf("r%d\t", i);
+    printf("\n");
+    
     for(int i=0; i<r; i++){
         printf("p%d\t", i);
         for(int j=0; j<c; j++){
