@@ -58,7 +58,8 @@ int fifo(int ref[], int refLen, int noFrames){    //find number of page faults
 
 int lru(int ref[], int refLen, int noFrames){
     int fault = 0, meow;    //fault stores total no. of page faults, meow is temp
-    int frames[noFrames][2];    //[frame number] [time since last referenced]
+    int time = 0;
+    int frames[noFrames][2];    //[frame number] [timestamp when last referenced]
     
     //initialize frames arr
     for(int i=0; i<noFrames; i++){
@@ -73,7 +74,7 @@ int lru(int ref[], int refLen, int noFrames){
         
         for(int j=0; j<noFrames; j++)
             if(frames[j][0] == ref[i]){ //if page already in one of the frames
-                frames[j][1] = 0;   //reset time since last referenced
+                frames[j][1] = time++;   //reset timestamp
                 meow = 1;
                 break;
             }
@@ -86,7 +87,7 @@ int lru(int ref[], int refLen, int noFrames){
         for(int j=0; j<noFrames; j++)
             if(frames[j][0] == -1){
                 frames[j][0] = ref[i];
-                frames[j][1] = 0;
+                frames[j][1] = time++;
                 meow = 0;
                 break;
             }
@@ -95,16 +96,12 @@ int lru(int ref[], int refLen, int noFrames){
             //find least recently used page
             meow = 0;
             for(int i=1; i<noFrames; i++)
-                if(frames[i][1] > frames[meow][1])
+                if(frames[i][1] < frames[meow][1])
                     meow = i;
 
             frames[meow][0] = ref[i];   //replace
-            frames[meow][1] = 0;        //set time since last referenced        
+            frames[meow][1] = time++;        //set timestamp       
         }
-
-        //update all frames
-        for(int i=0; i<noFrames; i++)
-            frames[i][1]++;
 
         printf("\t:\t");
         for(int i=0; i<noFrames; i++){ //print pages mapped to each frame
